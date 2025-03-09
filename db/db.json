@@ -1,0 +1,80 @@
+{
+  "users": [
+    {
+      "id": "1741336302500",
+      "first_name": "Nesciunt ",
+      "last_name": "Necessita",
+      "email": "wefiubi@gmail.com",
+      "phone": "8998898888",
+      "address": {
+        "hnumber": "ywefu vwevfuywef",
+        "street": "209Grady Radial",
+        "city": "Denve",
+        "pincode": "888888"
+      },
+      "company": {
+        "companyname": "Quisquamm",
+        "companywebsite": "iviwebfwe.com",
+        "role": "super-admin"
+      },
+      "password": "@SK123123122a"
+    },
+    {
+      "id": "1741339919460",
+      "first_name": "Brendan",
+      "last_name": "Eich",
+      "email": "Brendan@gmail.com",
+      "phone": "7735548481",
+      "address": {
+        "hnumber": "456789",
+        "street": "mumbai",
+        "city": "mumbai",
+        "pincode": "753588"
+      },
+      "company": {
+        "companyname": "JavaScript",
+        "companywebsite": "JavaScript.com",
+        "role": "admin"
+      },
+      "password": "@Brendan123"
+    },
+    {
+      "id": "1741340027911",
+      "first_name": "Guido Van ",
+      "last_name": "Rossum ",
+      "email": "Guido@gmail.com",
+      "phone": "7897897898",
+      "address": {
+        "hnumber": "789798",
+        "street": "Russia",
+        "city": "Russia",
+        "pincode": "789789"
+      },
+      "company": {
+        "companyname": "Python",
+        "companywebsite": "Pythion.org",
+        "role": "customer"
+      },
+      "password": "@Guido123"
+    },
+    {
+      "id": "1741415676152",
+      "first_name": "Delectus id",
+      "last_name": "Amet tem",
+      "email": "your.email+fakedata49709@gmail.com",
+      "phone": "7897897899",
+      "address": {
+        "hnumber": "516",
+        "street": "7909 Lockman Mews",
+        "city": "New Haven",
+        "pincode": "402789"
+      },
+      "company": {
+        "companyname": "rheryerh",
+        "companywebsite": "rtrturt.com",
+        "role": "customer"
+      },
+      "password": "@Sk12321"
+    }
+  ]
+}
