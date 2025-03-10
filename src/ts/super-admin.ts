@@ -53,6 +53,10 @@ window.onload = (event) => {
 const handlePostSuperAdmin = (event: Event) => {
     DOMInstance.HandlePostSuperAdmin(event)
 }
-const updateSuperAdmin = (event:Event) =>{
+const updateSuperAdmin = (event: Event) => {
     DOMInstance.UpdateSuperAdmin(event)
+}
+
+const handleDelete = (event: Event) => {
+    DOMInstance.HandleDelete(event)
 }

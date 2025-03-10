@@ -102,7 +102,6 @@ editFields[7].addEventListener("blur", (event) => validation.OnBlurValidate(even
 editFields[8].addEventListener("blur", (event) => validation.OnBlurValidate(event, editCompanyNameWarning, editFields[8]));
 editFields[9].addEventListener("blur", (event) => validation.OnBlurValidate(event, editCompanyWebWarning, editFields[9]));
 editFields[10].addEventListener("blur", (event) => validation.OnBlurValidate(event, editPasswordWarning, editFields[10]));
-editFields[11].addEventListener("blur", (event) => validation.OnBlurValidate(event, editConfirmPasswordWarning, editFields[11]));
 // UPDATE INPUT VALIDATION //
 editFields[0].addEventListener("input", (event) => validation.OnInputValidateName(event, /^[A-Za-z\s]{1,15}$/, editFnameWarning));
 editFields[1].addEventListener("input", (event) => validation.OnInputValidateName(event, /^[A-Za-z\s]{1,15}$/, editLnameWarning));

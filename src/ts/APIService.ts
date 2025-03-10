@@ -52,7 +52,9 @@ class APIService {
     };
     // PATCHING USER TO API //
     async PatchUser(user: User, endPoint: string) {
+        console.log(user);
         try {
+            debugger
             this.LOADING_SCREEN.style.display = "block";
             const API_RESPONSE = await fetch(`${this.API_URL_USERS}/${endPoint}`, {
                 method: "PATCH",
@@ -68,13 +70,38 @@ class APIService {
             console.error(error);
         }
     };
+    // PATCHING CUSTOMER TO API //
+    async CustomerPatchUser(user: User, endPoint: string) {
+        console.log(user);
+        try {
+            debugger
+            this.LOADING_SCREEN.style.display = "block";
+            const API_RESPONSE = await fetch(`${this.API_URL_USERS}/${endPoint}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user),
+            });
+            if (API_RESPONSE.ok) {
+                this.LOADING_SCREEN.style.display = "none";
+                sessionStorage.clear()
+                sessionStorage.setItem("loggedInCustomer", JSON.stringify(user));
+                customerDOMInstance.RenderCustomer()
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
     // DELETING USER FROM API //
     async DeleteUser(endPoint: string) {
         console.log(endPoint);
-        debugger;   
-
+        debugger;
         try {
             this.LOADING_SCREEN.style.display = "block";
+            console.log(this.API_URL_USERS, endPoint);
+
+            debugger
             const API_RESPONSE = await fetch(`${this.API_URL_USERS}/${endPoint}`, {
                 method: "DELETE",
             });

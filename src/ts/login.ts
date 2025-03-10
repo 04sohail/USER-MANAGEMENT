@@ -20,7 +20,6 @@ window.onload = (event) => {
         return validation.ValidateRegex(emailLogin, /^(?=[a-zA-Z0-9@._%+-]{1,254}$)(?=[a-zA-Z0-9._%+-]{1,64}@)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/) &&
             validation.ValidateRegex(passwordLogin, /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/)
     }
-
     const validateLoginEmptyField = (): boolean => {
         return validation.ValidateEmptyLogin(allLoginField, allLoginWarnings)
     }
@@ -28,9 +27,13 @@ window.onload = (event) => {
     loginBtn.addEventListener("click", (event) => handleSubmit(event as Event));
     const handleSubmit = async (event: Event): Promise<void> => {
         event.preventDefault();
-        console.log("INSIDE HANDLE SUBMIt");
         if (validateLoginEmptyField() && loginRegexValidate()) {
-            const API_RESPONSE = await APIInstance.GetSingleUser(`email=${encodeURIComponent(emailLogin.value)}&password=${encodeURIComponent(passwordLogin.value)}`);
+            interface UserResponse {
+                company: {
+                    role: string;
+                };
+            }
+            const API_RESPONSE = await APIInstance.GetSingleUser(`email=${encodeURIComponent(emailLogin.value)}&password=${encodeURIComponent(passwordLogin.value)}`) as UserResponse[];
             if (!API_RESPONSE) {
                 alert("SORRY NO USER FOUND")
             }
@@ -48,12 +51,9 @@ window.onload = (event) => {
                 }
                 else {
                     loginForm.style.height = "545px";
-                    console.log("VALIDATION TRUE");
                     return
                 }
             }
         }
     }
-
-
 }

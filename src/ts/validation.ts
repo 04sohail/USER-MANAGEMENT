@@ -339,6 +339,28 @@ class Validation {
             return true;
         }
     }
+    async CustomerEditValidateExists(editFields: HTMLInputElement[], userId: null | string | undefined): Promise<boolean> {
+        const findEmail:Object[] | undefined = await customerAPIInstance.GetSingleUser(`email=${encodeURIComponent(editFields[2].value)}`);
+        console.log("ValidateExistsEMAIL", findEmail, typeof findEmail);
+        const findPhone = await customerAPIInstance.GetSingleUser(`phone=${encodeURIComponent(editFields[3].value)}`);
+        console.log("ValidateExistsPHONE", findPhone);
+        debugger;
+        if (Array.isArray(findEmail) && findEmail.length > 0 && findEmail[0].id !== userId) {
+            editFields[2].focus()
+            editEmailWarning.style.display = "block";
+            editEmailWarning.innerHTML = "<small>Email already exists </small>";
+            return false
+        }
+        else if (Array.isArray(findPhone) && findPhone.length > 0 && findPhone[0].id !== userId) {
+            editFields[3].focus()
+            editPhoneWarning.style.display = "block";
+            editPhoneWarning.innerHTML = "<small>Phone already exists </small>";
+            return false
+        }
+        else {
+            return true;
+        }
+    }
     ValidateUpdateRegex() {
         return validation.ValidateRegex(addFields[0], /^[A-Za-z\s]{1,15}$/) &&
             validation.ValidateRegex(addFields[1], /^[A-Za-z\s]{1,15}$/) &&

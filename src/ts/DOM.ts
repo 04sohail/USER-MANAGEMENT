@@ -210,6 +210,39 @@ class DOM {
             console.log("VALIDATION FAILED");
         }
     }
+    async UpdateCustomer(event: Event, id: string | undefined): Promise<void> {
+        event.preventDefault();
+        debugger;
+        console.log("INSIDE UPDATE ADMIN");
+        const user: User = {
+            id: id,
+            first_name: customerEditFields[0].value,
+            last_name: customerEditFields[1].value,
+            email: customerEditFields[2].value,
+            phone: customerEditFields[3].value,
+            address: {
+                hnumber: customerEditFields[4].value,
+                street: customerEditFields[5].value,
+                city: customerEditFields[6].value,
+                pincode: customerEditFields[7].value,
+            },
+            company: {
+                companyname: customerEditFields[8].value,
+                companywebsite: customerEditFields[9].value,
+                role: customerEditFields[10].value,
+            },
+        };
+        console.log("UpdateUser", user);
+        if (customerValidateUpdateEmptyField() && await customerValidation.CustomerEditValidateExists(customerEditFields, id)) {
+            console.log("INSIDE VALIDATION UPDATE");
+            debugger;
+            console.log(id);
+            customerAPIInstance.CustomerPatchUser(user, `${id}`);
+            this.RenderAdmin(API_response);
+        } else {
+            console.log("VALIDATION FAILED");
+        }
+    }
     DeleteUser(id: string | null | undefined): void {
         debugger;
         this.SAVING_ID = id;
@@ -219,7 +252,7 @@ class DOM {
         event.preventDefault()
         if (this.SAVING_ID) {
             console.log("INSIDE IF");
-            APIInstance.DeleteUser(this.SAVING_ID);
+            await APIInstance.DeleteUser(this.SAVING_ID);
         } else {
             console.error("SAVING_ID is null");
         }
@@ -227,8 +260,11 @@ class DOM {
     async HandleCustomerDelete(event: Event, id: string | undefined): Promise<void> {
         event.preventDefault()
         console.log(event);
+        debugger
         if (id) {
-            APIInstance.DeleteUser(id);
+            console.log(id);
+            debugger;
+            await customerAPIInstance.DeleteUser(id);
             location.href = "index.html"
         } else {
             console.error("id not found");
@@ -309,5 +345,28 @@ class DOM {
         EditWarnings.forEach(element => {
             element.style.display = "none"
         })
+    }
+    RenderCustomer = (): void => {
+        if (Object.keys(customer).length == 0) {
+            window.location.href = "index.html";
+        } else {
+            // RENDERING DATA //
+            profileFullName.textContent = customer.first_name + " " + customer.last_name;
+            profileEmail.textContent = customer.email;
+            profilePhone.textContent = customer.phone;
+            profileAddress.textContent =
+                customer.address.hnumber +
+                ", " +
+                customer.address.street +
+                ", " +
+                customer.address.city +
+                ", " +
+                customer.address.pincode;
+            profileCompName.textContent = customer.company.companyname;
+            profileRole.textContent = customer.company.role;
+            profileCompWeb.textContent =
+                customer.company.companywebsite;
+            aCompanyWebsite.href = customer.company.companywebsite;
+        }
     }
 }

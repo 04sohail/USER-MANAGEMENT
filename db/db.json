@@ -56,25 +56,6 @@
         "role": "customer"
       },
       "password": "@Guido123"
-    },
-    {
-      "id": "1741415676152",
-      "first_name": "Delectus id",
-      "last_name": "Amet tem",
-      "email": "your.email+fakedata49709@gmail.com",
-      "phone": "7897897899",
-      "address": {
-        "hnumber": "516",
-        "street": "7909 Lockman Mews",
-        "city": "New Haven",
-        "pincode": "402789"
-      },
-      "company": {
-        "companyname": "rheryerh",
-        "companywebsite": "rtrturt.com",
-        "role": "customer"
-      },
-      "password": "@Sk12321"
     }
   ]
 }
