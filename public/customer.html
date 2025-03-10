@@ -21,11 +21,24 @@
 </head>
 
 <body>
+  <!--LOADING SCREEN-->
+  <div class="fullScreen">
+    <div class="middle">
+      <div class="bar bar1"></div>
+      <div class="bar bar2"></div>
+      <div class="bar bar3"></div>
+      <div class="bar bar4"></div>
+      <div class="bar bar5"></div>
+      <div class="bar bar6"></div>
+      <div class="bar bar7"></div>
+      <div class="bar bar8"></div>
+    </div>
+  </div>
   <!-- Edit Modal HTML -->
   <div id="editEmployeeModal" class="modal fade" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form id="editForm" onsubmit="updateAdmin(event)">
+        <form id="editForm" onsubmit="updateCustomer(event)">
           <div class="modal-header">
             <h4 class="modal-title">Edit Your Details Here </h4>
             <button type="button" class="close admin-btn-cancel" data-dismiss="modal" aria-hidden="true">
@@ -209,7 +222,6 @@
   <script src="../dist/APIService.js"></script>
   <script src="../dist/types.js"></script>
   <script src="../dist/customer.js"></script>
-  <script src="../dist/index.js"></script>
 </body>
 
 </html>
